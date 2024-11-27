@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abre Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="#" class="logo">Abre.</a>
+    
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>   
+
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Hai, I'm Abre Pramana</h1>
+            <h3>Software Developer</h3>
+            <p>Saya seorang bocah 18 tahun, mahasiswa Universitas Udayana. Saya memiliki keahlian dalam merancang, membangun, dan mengoptimalkan aplikasi berbasis web serta mobile dengan fokus pada efisiensi dan skalabilitas.</p>
+            <div class="btn-box">
+                <a href="#">Hire Me</a>
+                <a href="#">Let's Do</a>
+            </div>
+        </div>
+
+        <div class="home-sci">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+        </div>
+    </section>
+
+    <section id="about" class="about scroll-animation">
+        <h2>About Me</h2>
+        <a href="Abre_Pramana.pdf" download>
+            <button>Download CV Abre Pramana</button>
+        </a>    
+    </section>
+
+    <section id="skills" class="skills scroll-animation">
+        <h2>My Skills</h2>
+        <ul>
+            <li>Web Development</li>
+            <li>Mobile App Development</li>
+            <li>UI/UX Design</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="projects scroll-animation">
+        <h2>My Projects</h2>
+        <div class="project-item">
+            <h3>Digital Tourism App</h3>
+            <p>Membuat suatu website bisnis spa dan wellnes.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact scroll-animation">
+        <h2>Contact Me</h2>
+        <p>Email: abrepramana025@gmail.com</p>
+        <p>Phone: +62-898-023-0004</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Abre Pramana. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-to-top">↑</button>
+
+    <script>
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        window.onscroll = () => {
+            scrollToTopButton.style.display = window.scrollY > 300 ? 'block' : 'none';
+        };
+        scrollToTopButton.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+    <div class="wave" style="height: 150px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d="M0.00,49.98 C150.00,150.00 349.57,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="fill:#00abf0;"></path>
+    </svg>
+</div>
+
+<section id="testimonial" class="testimonial">
+    <h2>What They Say</h2>
+    <div class="testimonial-item">
+        <p>"Abre membuat efisiensi dari bisnis kami meningkat"</p>
+        <span>- Gusti Wijaya, Operational Manager of Kupu Kupu Mas Spa</span>
+    </div>
+
+    <div class="wave" style="height: 150px; overflow: hidden;">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M0.00,49.98 C150.00,150.00 349.57,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="fill:#00abf0;"></path>
+        </svg>
+    </div>
+    </section>
+</section>
+
+<script>const scrollElements = document.querySelectorAll('.scroll-animation');
+
+    const elementInView = (el, offset = 0) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset);
+    };
+    
+    const elementOutOfView = (el, offset = 0) => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementBottom = el.getBoundingClientRect().bottom;
+        return (elementTop > (window.innerHeight || document.documentElement.clientHeight) - offset || elementBottom < 0);
+    };
+    
+    const handleScrollAnimation = () => {
+        scrollElements.forEach(el => {
+            if (elementInView(el, 100)) {
+                el.classList.add('visible');
+            } else if (elementOutOfView(el, 100)) {
+                el.classList.remove('visible');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', handleScrollAnimation);
+    
+    handleScrollAnimation();
+
+    document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); 
+        const targetId = this.getAttribute('href'); 
+        const targetElement = document.querySelector(targetId); 
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' }); 
+        }
+    });
+});
+</script>
+</body>
+</html>
